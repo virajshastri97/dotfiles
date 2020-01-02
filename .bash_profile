@@ -4,7 +4,7 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
 
 # Custom prompt, aliases
-for file in ~/.{bash_prompt,alias}; do
+for file in ~/.{prompt,alias,inputrc}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
