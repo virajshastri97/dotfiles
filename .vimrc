@@ -8,6 +8,10 @@ Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
 
+Bundle 'scrooloose/nerdtree'
+
+Bundle 'xuyuanp/nerdtree-git-plugin'
+
 set number
 syntax enable
 set background=dark
