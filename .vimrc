@@ -19,3 +19,6 @@ let g:solarized_termcolors = 256
 colorscheme solarized
 
 filetype plugin indent on " Required
+
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-b><C-i> :BundleInstall<CR>
