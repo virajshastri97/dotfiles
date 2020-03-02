@@ -12,6 +12,8 @@ Bundle 'scrooloose/nerdtree'
 
 Bundle 'xuyuanp/nerdtree-git-plugin'
 
+Bundle 'valloric/youcompleteme'
+
 set number
 syntax enable
 set background=dark
