@@ -1,0 +1,10 @@
+_goto() {
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    directories=( $(compgen -d -- ~/Dev/) )
+    based=$(for i in ${directories[@]}; do basename "@$i"; done)
+    COMPREPLY=( $(compgen -W "${based}" -- $cur) )
+    return 0
+}
+
+complete -F _goto goto
