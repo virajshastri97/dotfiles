@@ -1,6 +1,6 @@
 [user]
 	name = virajshastri97
-	email = viraj.s@media.net
+	email = viraj.shastri@colostate.edu
 
 [alias]
 	s = status
@@ -12,7 +12,7 @@
 	cam = commit -am
 	one = log --oneline
 	a = add -p
-	aa = add .
+	aa = add
 	co = checkout
 	cob = checkout -b
 	b = branch
@@ -26,3 +26,5 @@
 	ra = rebase --abort
 	f = fetch
 	fa = fetch --all
+[core]
+	editor = /usr/bin/vim
