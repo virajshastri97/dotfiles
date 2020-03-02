@@ -29,9 +29,9 @@ prompt_git() {
 
       # Check for unstaged changes.
       if ! $(git diff-files --quiet --ignore-submodules --); then
-        s+=' -';
-      elif $(git diff-files --quiet --ignore-submodules --); then
         s+=' ✚';
+      # elif $(git diff-files --quiet --ignore-submodules --); then
+        # s+=' -';
       fi;
 
       # Check for untracked files.
