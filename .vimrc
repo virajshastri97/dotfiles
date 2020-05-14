@@ -2,17 +2,19 @@ set nocompatible
 filetype off    " Required
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'xuyuanp/nerdtree-git-plugin'
+Plugin 'itchyny/lightline.vim'
+" Plugin 'valloric/youcompleteme'
 
-Bundle 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'dracula/vim'
 
-Bundle 'xuyuanp/nerdtree-git-plugin'
-
-Bundle 'valloric/youcompleteme'
+call vundle#end()
 
 set number
 syntax enable
@@ -28,4 +30,4 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 nmap <C-n> :NERDTreeToggle<CR>
-nmap <C-b><C-i> :BundleInstall<CR>
+nmap <C-p><C-i> :PluginInstall<CR>
