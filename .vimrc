@@ -18,9 +18,13 @@ call vundle#end()
 
 set number
 syntax enable
-set background=dark
-let g:solarized_termcolors = 256
-colorscheme solarized
+set tabstop=4
+set shiftwidth=4
+" set background=dark
+" let g:solarized_termcolors = 256
+" colorscheme solarized
+let g:dracula_colorterm=0
+colorscheme dracula
 
 filetype plugin indent on " Required
 
