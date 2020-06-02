@@ -52,11 +52,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null; then
-  complete -o default -o nospace -F _git g;
-fi;
-
 csu() {
     if [ $# -eq 0 ];then
         open -a "Google Chrome" https://www.cs.colostate.edu/~info/machines;
