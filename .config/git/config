@@ -1,0 +1,30 @@
+[user]
+	name = virajshastri97
+	email = viraj.shastri@colostate.edu
+
+[alias]
+	s = status
+	pu = pull
+	p = push
+	po = push origin
+	c = commit -m
+	amend = commit --amend
+	cam = commit -am
+	one = log --oneline
+	a = add -p
+	aa = add
+	co = checkout
+	cob = checkout -b
+	b = branch
+	ba = branch --all
+	bd = branch -D
+	d = diff
+	dc = diff --cached
+	r = rebase
+	rc = rebase --continue
+	rs = rebase --skip
+	ra = rebase --abort
+	f = fetch
+	fa = fetch --all
+[core]
+	editor = /usr/bin/vim

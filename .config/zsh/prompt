@@ -1,0 +1,59 @@
+#!/usr/bin/env zsh
+
+zstyle ':vcs_info:*' enable git
+
+# Workaround for zsh 5.2 release 
+autoload +X VCS_INFO_nvcsformats
+functions[VCS_INFO_nvcsformats]=${functions[VCS_INFO_nvcsformats]/local -a msgs/}
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr ' ✹'
+zstyle ':vcs_info:*' unstagedstr ' ✚'
+zstyle ':vcs_info:*' formats '(%{%F{magenta}%}%b%{%f%}) %{%F{cyan}%}[%c%u ]%{%f%}'
+zstyle ':vcs_info:*' actionformats '(%{%F{magenta}%}%a | %m%{%f%}) %{%F{cyan}%}[%c%u ]%{%f%}'
+zstyle ':vcs_info:*' nvcsformats ''
+zstyle ':vcs_info:git:*' patch-format '%10>…>%p%<< (%n applied)'
+# zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+# zstyle ':vcs_info:git*+set-message:*' hooks git-stashed
+zstyle ':vcs_info:git*+set-message:*' hooks git-extras
+
++vi-git-extras() {
+  if [[ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]]; then
+	if [[ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]]; then
+      # Check for untracked files.
+      if [[ -n "$(git ls-files --others --exclude-standard)" ]]; then
+        hook_com[unstaged]+=' ✭';
+      fi;
+
+      # Check for stashed files.
+      if $(git rev-parse --verify refs/stash &>/dev/null); then
+        hook_com[unstaged]+=' ☆';
+      fi;
+	fi
+  fi
+}
+
++vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+     git status --porcelain | grep -m 1 '^??' &>/dev/null
+  then
+	echo "UNSTAGED"
+    hook_com[staged]+=' ✭'
+  fi
+}
+
++vi-git-stashed() {
+  if $(git rev-parse --verify refs/stash &>/dev/null); then
+    hook_com[unstaged]+=' ☆'
+  fi
+}
+
+autoload -Uz vcs_info
+function precmd() { vcs_info }
+
+if [[ $UID == 0 || $EUID == 0 ]]; then
+  echo "ROOT"
+fi
+
+setopt prompt_subst
+PROMPT=$'\n%{%F{red}%}%n%{%f%}@%{%F{yellow}%}%m%{%f%} → %{%F{green}%}%~%{%f%} ${vcs_info_msg_0_}\n↳ \$ %{%E%}'
