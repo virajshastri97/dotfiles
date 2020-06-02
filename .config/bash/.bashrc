@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -19,27 +21,12 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Custom prompt, aliases
-for file in ~/.{prompt,inputrc,bash_completions}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
-
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -52,6 +39,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Custom aliases, prompt and some autocomplete settings
+[ -f $HOME/.config/aliases ] && source $HOME/.config/aliases
+[ -f $HOME/.config/bash/prompt ] && source $HOME/.config/bash/prompt
+[ -f $HOME/.config/bash/inputrc ] && source $HOME/.config/bash/inputrc
+
 csu() {
     if [ $# -eq 0 ];then
         open -a "Google Chrome" https://www.cs.colostate.edu/~info/machines;
@@ -61,17 +53,6 @@ csu() {
         ssh -X $1@$2.cs.colostate.edu;
     fi
 }
-
-# Add your local configs here
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
 
 # CUDA paths
 [ -d /usr/local/cuda-10.1 ] && export PATH=/usr/local/cuda-10.1/bin:/usr/local/cuda-10.1/nsight-compute-2019.4.0${PATH:+:${PATH}}
