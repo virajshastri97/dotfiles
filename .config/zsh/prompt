@@ -9,8 +9,8 @@ functions[VCS_INFO_nvcsformats]=${functions[VCS_INFO_nvcsformats]/local -a msgs/
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr ' ✹'
 zstyle ':vcs_info:*' unstagedstr ' ✚'
-zstyle ':vcs_info:*' formats '(%{%F{magenta}%}%b%{%f%}) %{%F{cyan}%}[%c%u ]%{%f%}'
-zstyle ':vcs_info:*' actionformats '(%{%F{magenta}%}%a | %m%{%f%}) %{%F{cyan}%}[%c%u ]%{%f%}'
+zstyle ':vcs_info:*' formats '(%F{magenta}%b%f) %F{cyan}[%c%u ]%f'
+zstyle ':vcs_info:*' actionformats '(%F{magenta}%a | %m%f) %F{cyan}[%c%u ]%f'
 zstyle ':vcs_info:*' nvcsformats ''
 zstyle ':vcs_info:git:*' patch-format '%10>…>%p%<< (%n applied)'
 # zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
@@ -56,4 +56,4 @@ if [[ $UID == 0 || $EUID == 0 ]]; then
 fi
 
 setopt prompt_subst
-PROMPT=$'\n%{%F{red}%}%n%{%f%}@%{%F{yellow}%}%m%{%f%} → %{%F{green}%}%~%{%f%} ${vcs_info_msg_0_}\n↳ \$ %{%E%}'
+PROMPT=$'\n%B%F{red}%n%f@%F{yellow}%m%f → %F{green}%~%f ${vcs_info_msg_0_}\n↳ \$ %b%E'
