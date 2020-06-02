@@ -18,7 +18,7 @@ call vundle#end()
 
 set viminfo+=n~/.cache/vim/viminfo
 
-set number
+set number relativenumber
 syntax enable
 set tabstop=4
 set shiftwidth=4
@@ -37,3 +37,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-p><C-i> :PluginInstall<CR>
+
+" Split mapping
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
