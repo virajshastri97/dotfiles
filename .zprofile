@@ -10,7 +10,8 @@ export BROWSER="Google Chrome"
 
 # ~ cleanup
 export ZDOTDIR="$HOME/.config/zsh"
-export VIMINIT="source $HOME/.config/vim/.vimrc"
+export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
+export VIMDOTDIR="$HOME/.config/vim"
 
 # Setting PATH for Python 3.8
 # The original version is saved in .zprofile.pysave
