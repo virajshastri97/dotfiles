@@ -9,6 +9,7 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'itchyny/lightline.vim'
+Plugin 'Yggdroot/indentLine'
 " Plugin 'valloric/youcompleteme'
 
 Plugin 'altercation/vim-colors-solarized'
@@ -27,6 +28,9 @@ set shiftwidth=4
 " colorscheme solarized
 let g:dracula_colorterm=0
 colorscheme dracula
+
+set list lcs=tab:\|\ 
+let g:lightline = { 'colorscheme': 'dracula', }
 
 filetype plugin indent on " Required
 
