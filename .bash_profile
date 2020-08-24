@@ -6,6 +6,7 @@
 
 # Default programs
 export EDITOR="vim"
+export BROWSER="Google Chrome"
 
 # ~ cleanup
 export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
