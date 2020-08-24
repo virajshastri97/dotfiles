@@ -66,7 +66,7 @@ bindkey -s '^o' 'lfcd\n'
 # SSH login for CSU Workstations
 csu() {
     if [ $# -eq 0 ];then
-        open -a "Google Chrome" https://https://www.cs.colostate.edu/~info/cuda_machines.txt;
+        open -a "Google Chrome" https://www.cs.colostate.edu/~info/cuda_machines.txt;
     elif [ $# -eq 1 ];then
         ssh -X virajs@$1.cs.colostate.edu;
     elif [ $# -eq 2 ];then
