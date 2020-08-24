@@ -1,12 +1,8 @@
 #!/bin/sh
 
-# Copying common files
-copy () {
-  cp $PWD/$1 ~/$1 && echo Copying $1
-}
+# Creating symlink for config files
+ln -s ~/Dev/dotfiles/.config ~/.config && echo Creating config files symlink
 
-cp -r .config $HOME/ && echo Copying config dir
-
-# Copying shell specific files
-[[ $SHELL == *"zsh"* ]] && copy ".zprofile"
-[[ $SHELL == *"bash"* ]] && copy ".bash_profile"
+# Creating shell specific symlink
+[[ $SHELL == *"zsh"* ]] && ln -s ~/Dev/dotfiles/.zprofile ~/.zprofile && echo Creating zprofile symlink
+[[ $SHELL == *"bash"* ]] && ln -s ~/Dev/dotfiles/.bash_profile ~/.bash_profile && echo Creating bash profile symlink
