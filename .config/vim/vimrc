@@ -27,7 +27,6 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-set termguicolors
 set number relativenumber
 syntax enable
 set tabstop=4
