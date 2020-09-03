@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Git
 alias g="git"
 alias gs="g s"
 alias gp="g p"
@@ -9,9 +10,9 @@ alias gc="g c"
 alias gone="g one"
 alias ga="g a"
 alias gd="g d"
-alias vi="vim"
+
+# System
 alias ..="cd .."
-alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
@@ -20,6 +21,12 @@ alias ll="ls -alF"
 alias la="ls -A"
 alias l="ls -CF"
 alias ccat="highlight --out-format=xterm256"
+
+# Dev
 alias activate="source venv/bin/activate"
 alias cv="cd ~/Dev/CV && activate"
+alias vi="vim"
+alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
+
+# Terminal tomfoolery
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
