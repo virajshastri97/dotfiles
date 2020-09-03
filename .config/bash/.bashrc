@@ -54,6 +54,16 @@ csu() {
     fi
 }
 
+ta() {
+    if [ $# -eq 0 ]; then
+        csu cs253 salem;
+    elif [ $# -gt 1 ]; then
+        echo "Usage: $0 <machine-name>";
+    else
+        csu cs253 $1;
+    fi
+}
+
 # CUDA paths
 [ -d /usr/local/cuda-10.1 ] && export PATH=/usr/local/cuda-10.1/bin:/usr/local/cuda-10.1/nsight-compute-2019.4.0${PATH:+:${PATH}}
 [ -d /usr/local/cuda-10.1/lib64 ] && export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
