@@ -27,6 +27,7 @@ alias activate="source venv/bin/activate"
 alias cv="cd ~/Dev/CV && activate"
 alias vi="vim"
 alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
+alias tas="tmux attach-session -t"
 
 # Terminal tomfoolery
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
