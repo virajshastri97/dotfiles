@@ -21,6 +21,7 @@ alias ll="ls -alF"
 alias la="ls -A"
 alias l="ls -CF"
 alias ccat="highlight --out-format=xterm256"
+alias ns="nvidia-smi"
 
 # Dev
 alias activate="source venv/bin/activate"
