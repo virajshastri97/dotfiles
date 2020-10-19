@@ -17,3 +17,8 @@ export VIMDOTDIR="$HOME/.config/vim"
 # The original version is saved in .zprofile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
 export PATH
+
+# MacOS specific
+# Disable the addition of ._foobar when using tar
+COPYFILE_DISABLE=1
+export COPYFILE_DISABLE
