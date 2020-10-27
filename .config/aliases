@@ -30,6 +30,7 @@ alias plt="rsync -azP --delete virajs@lotus.cs.colostate.edu:~/Dev/CV/plots/ plo
 alias vi="vim"
 alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
 alias tas="tmux attach-session -t"
+alias tls="tmux ls"
 
 # Terminal tomfoolery
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
