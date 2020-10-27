@@ -1,5 +1,5 @@
 set nocompatible
-filetype off    " Required
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -12,49 +12,56 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'Yggdroot/indentLine'
 " Plugin 'valloric/youcompleteme'
 
+" Colorschemes
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'dracula/vim'
-Plugin 'sonph/onehalf', {'rtp': 'vim/'}
-Plugin 'bluz71/vim-nightfly-guicolors'
 
 call vundle#end()
 
+" Set cache directory
 set viminfo+=n~/.cache/vim/viminfo
 
+" Some basic defaults
+syntax enable
+filetype plugin indent on
+
+" Enable termguicolors for xterm256
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
+" Relative line numbering
 set number relativenumber
-syntax enable
+
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+set splitbelow splitright
+
+" Set behaviour for tab
 set tabstop=4
 set shiftwidth=4
+set list lcs=tab:\|\ 
+
+" Colorscheme
 set background=dark
 let g:solarized_termcolors = 256
 colorscheme solarized
-" let g:dracula_colorterm=0
-" colorscheme dracula
-" colorscheme onehalfdark
-" colorscheme nightfly
 
-set list lcs=tab:\|\ 
-" let g:lightline = { 'colorscheme': 'onehalfdark' }
-" let g:lightline = { 'colorschem': 'nightfly' }
-" let g:lightline = { 'colorscheme': 'dracula' }
 let g:lightline = { 'colorscheme': 'solarized' }
 
-filetype plugin indent on " Required
-
+" Open NERDTree automatically when vim is opened in a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Automatically deletes all trailing whitespace and newlines at end of file on save.
+" autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritepre * %s/\n\+\%$//e
+
 nmap <C-n>t :NERDTreeToggle<CR>
 nmap <C-n>f :NERDTreeFind<CR>
-nmap <C-p><C-i> :PluginInstall<CR>
+nmap <C-p>i :PluginInstall<CR>
 
 " Split mapping
 map <C-h> <C-w>h
