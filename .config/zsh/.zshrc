@@ -9,7 +9,7 @@ esac
 # Enable colors:
 autoload -U colors && colors	# Load colors
 
-# for setting history length see HISTSIZE and HISTFILESIZE 
+# for setting history length see HISTSIZE and HISTFILESIZE
 HISTSIZE=1000
 SAVEHIST=2000
 HISTFILE=$HOME/.cache/zsh/.zsh_history
@@ -74,6 +74,12 @@ csu() {
     fi
 }
 
+csuj() {
+    p=8888
+    (( $# == 2 )) && p=$2
+    ssh $p:localhost:$p -L virajs@$1.cs.colostate.edu
+}
+
 ta() {
     if [ $# -eq 0 ]; then
         csu cs253 salem;
@@ -82,6 +88,10 @@ ta() {
     else
         csu cs253 $1;
     fi
+}
+
+jn() {
+    jupyter notebook --no-browser --port=$1
 }
 
 # CUDA paths
