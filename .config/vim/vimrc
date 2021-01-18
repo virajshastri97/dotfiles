@@ -10,7 +10,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'itchyny/lightline.vim'
 Plugin 'Yggdroot/indentLine'
-" Plugin 'valloric/youcompleteme'
+Plugin 'valloric/youcompleteme'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " Colorschemes
 Plugin 'altercation/vim-colors-solarized'
@@ -48,6 +49,14 @@ let g:solarized_termcolors = 256
 colorscheme solarized
 
 let g:lightline = { 'colorscheme': 'solarized' }
+
+" YouCompleteMe autocomplete
+let g:ycm_filetype_blacklist = { 'tex': 1 }
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" LaTeX live preview for MacOS
+let g:livepreview_previewer = 'open -a Preview'
+let g:livepreview_cursorhold_recompile = 0
 
 " Open NERDTree automatically when vim is opened in a directory
 autocmd StdinReadPre * let s:std_in=1
