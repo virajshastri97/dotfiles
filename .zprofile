@@ -15,8 +15,8 @@ export VIMDOTDIR="$HOME/.config/vim"
 
 # Setting PATH for Python 3.8
 # The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
-export PATH
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
 
 # MacOS specific
 # Disable the addition of ._foobar when using tar
