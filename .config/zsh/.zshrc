@@ -38,8 +38,12 @@ setopt HIST_NO_STORE
 # Allow for autocomplete to be case insensitive
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
-# Initialize the autocompletion
-autoload -Uz compinit && compinit -i
+# Basic auto tab completion
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit -i
+_comp_options+=(globdots)
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
