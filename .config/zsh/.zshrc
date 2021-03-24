@@ -7,12 +7,12 @@ case $- in
 esac
 
 # Enable colors:
-autoload -U colors && colors	# Load colors
+autoload -U colors && colors
 
 # for setting history length see HISTSIZE and HISTFILESIZE
 HISTSIZE=1000
 SAVEHIST=2000
-HISTFILE=$HOME/.cache/zsh/.zsh_history
+HISTFILE=${HOME}/.cache/zsh/.zsh_history
 
 ## Addition of the history file
 setopt APPEND_HISTORY
@@ -97,3 +97,6 @@ jn() {
 # CUDA paths
 [ -d /usr/local/cuda-10.1 ] && export PATH=/usr/local/cuda-10.1/bin:/usr/local/cuda-10.1/nsight-compute-2019.4.0${PATH:+:${PATH}}
 [ -d /usr/local/cuda-10.1/lib64 ] && export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# Zsh syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
