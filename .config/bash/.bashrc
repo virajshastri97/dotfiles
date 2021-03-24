@@ -41,28 +41,9 @@ fi
 
 # Custom aliases, prompt and some autocomplete settings
 [ -f $HOME/.config/aliases ] && source $HOME/.config/aliases
+[ -f $HOME/.config/shortcuts ] && source $HOME/.config/shortcuts
 [ -f $HOME/.config/bash/prompt ] && source $HOME/.config/bash/prompt
 [ -f $HOME/.config/bash/inputrc ] && source $HOME/.config/bash/inputrc
-
-csu() {
-    if [ $# -eq 0 ];then
-        open -a "Google Chrome" https://www.cs.colostate.edu/~info/cuda_machines.txt;
-    elif [ $# -eq 1 ];then
-        ssh -X virajs@$1.cs.colostate.edu;
-    elif [ $# -eq 2 ];then
-        ssh -X $1@$2.cs.colostate.edu;
-    fi
-}
-
-ta() {
-    if [ $# -eq 0 ]; then
-        csu cs253 salem;
-    elif [ $# -gt 1 ]; then
-        echo "Usage: $0 <machine-name>";
-    else
-        csu cs253 $1;
-    fi
-}
 
 # CUDA paths
 [ -d /usr/local/cuda-10.1 ] && export PATH=/usr/local/cuda-10.1/bin:/usr/local/cuda-10.1/nsight-compute-2019.4.0${PATH:+:${PATH}}

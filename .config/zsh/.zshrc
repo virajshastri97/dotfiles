@@ -65,38 +65,9 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 [ -f $HOME/.config/aliases ] && source $HOME/.config/aliases
+[ -f $HOME/.config/shortcuts ] && source $HOME/.config/shortcuts
 [ -f $HOME/.config/zsh/prompt ] && source $HOME/.config/zsh/prompt
 
-# SSH login for CSU Workstations
-csu() {
-    if [ $# -eq 0 ];then
-        open -a "Google Chrome" https://www.cs.colostate.edu/~info/cuda_machines.txt;
-    elif [ $# -eq 1 ];then
-        ssh -X virajs@$1.cs.colostate.edu;
-    elif [ $# -eq 2 ];then
-        ssh -X $1@$2.cs.colostate.edu;
-    fi
-}
-
-csuj() {
-    p=8888
-    (( $# == 2 )) && p=$2
-    ssh $p:localhost:$p -L virajs@$1.cs.colostate.edu
-}
-
-ta() {
-    if [ $# -eq 0 ]; then
-        csu cs253 salem;
-    elif [ $# -gt 1 ]; then
-        echo "Usage: $0 <machine-name>";
-    else
-        csu cs253 $1;
-    fi
-}
-
-jn() {
-    jupyter notebook --no-browser --port=$1
-}
 
 # CUDA paths
 [ -d /usr/local/cuda-10.1 ] && export PATH=/usr/local/cuda-10.1/bin:/usr/local/cuda-10.1/nsight-compute-2019.4.0${PATH:+:${PATH}}
