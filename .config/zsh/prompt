@@ -57,3 +57,4 @@ fi
 
 setopt prompt_subst
 PROMPT=$'\n%B%F{red}%n%f@%F{yellow}%m%f → %F{green}%~%f ${vcs_info_msg_0_}\n↳ \$ %b%E'
+RPROMPT=$'[%D{%L:%M:%S %p}]'
