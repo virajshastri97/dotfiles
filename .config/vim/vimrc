@@ -39,6 +39,7 @@ set list lcs=tab:\|\
 
 " Highlight search as they are typed
 set incsearch
+set hlsearch
 
 " Start scrolling before reaching buffer end
 set scrolloff=8
