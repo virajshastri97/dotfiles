@@ -15,6 +15,7 @@ Plugin 'xuhdev/vim-latex-live-preview'
 
 " Colorschemes
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'drewtempelmeyer/palenight.vim'
 
 call vundle#end()
 
@@ -46,11 +47,11 @@ set scrolloff=8
 
 " Colorscheme
 set background=dark
-let g:solarized_termcolors = 256
-colorscheme solarized
+" let g:solarized_termcolors = 256
+colorscheme palenight
 
 " Status bar
-let g:lightline = { 'colorscheme': 'solarized' }
+let g:lightline = { 'colorscheme': 'palenight' }
 
 " YouCompleteMe autocomplete
 let g:ycm_filetype_blacklist = { 'tex': 1 }
