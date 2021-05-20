@@ -30,3 +30,7 @@ ta() {
 jn() {
     jupyter notebook --no-browser --port=${1}
 }
+
+rnp() {
+    cp $1 VirajShastriResume.pdf
+}
